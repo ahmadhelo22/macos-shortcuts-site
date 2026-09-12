@@ -1,13 +1,1 @@
-[
-  {
-    "slug": "compress-video",
-    "name_ar": "ضغط الفيديو",
-    "name_en": "Compress Video",
-    "description_ar": "ضغط فيديو باستخدام ffmpeg",
-    "description_en": "Compress a video using ffmpeg",
-    "requires": [
-      "ffmpeg"
-    ],
-    "file": "files/compress-video.shortcut"
-  }
-]
+[]
