@@ -22,6 +22,33 @@ body {
   line-height: 1.6;
 }
 
+.lang-toggle-btn {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  background: var(--card-bg);
+  color: var(--text);
+  border: 2px solid var(--text);
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--text);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.lang-toggle-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--text);
+}
+
+.lang-toggle-btn:active {
+  transform: translate(0, 0);
+  box-shadow: 1px 1px 0 var(--text);
+}
+
 .site-header {
   text-align: center;
   padding: 3rem 1.5rem 2rem;
