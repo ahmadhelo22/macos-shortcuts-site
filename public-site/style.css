@@ -1,0 +1,121 @@
+:root {
+  --bg: #0d0d0f;
+  --card-bg: #18181b;
+  --border: #2a2a2e;
+  --text: #f2f2f3;
+  --text-muted: #9a9aa2;
+  --accent: #0a84ff;
+  --accent-hover: #369bff;
+  --tag-bg: #232327;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Tahoma, sans-serif;
+  line-height: 1.6;
+}
+
+.site-header {
+  text-align: center;
+  padding: 3rem 1.5rem 2rem;
+}
+
+.site-header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2rem;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+#app {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+
+#status {
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.requires {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  background: var(--tag-bg);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
+
+.download-btn {
+  display: inline-block;
+  text-align: center;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.15s ease;
+}
+
+.download-btn:hover {
+  background: var(--accent-hover);
+}
+
+.error {
+  text-align: center;
+  color: #ff6b6b;
+}
+
+.site-footer {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  padding: 1.5rem;
+  border-top: 1px solid var(--border);
+}
