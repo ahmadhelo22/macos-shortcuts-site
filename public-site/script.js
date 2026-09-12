@@ -50,7 +50,7 @@ function renderCard(shortcut) {
   const downloadBtn = document.createElement('a');
   downloadBtn.className = 'download-btn';
   downloadBtn.href = shortcut.file;
-  downloadBtn.textContent = 'تحميل';
+  downloadBtn.innerHTML = '<span class="arrow">&#8592;</span> تحميل';
   downloadBtn.setAttribute('download', '');
   downloadBtn.addEventListener('click', () => onDownloadClick(shortcut));
   card.appendChild(downloadBtn);
