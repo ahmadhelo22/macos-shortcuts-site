@@ -2,19 +2,33 @@
   {
     "name": "Compress Video",
     "description": "ضغط فيديو باستخدام ffmpeg",
-    "requires": ["ffmpeg"],
+    "requires": [
+      "ffmpeg"
+    ],
     "file": "files/compress-video.shortcut"
   },
   {
     "name": "Convert Image to WebP",
     "description": "تحويل صورة إلى صيغة WebP باستخدام cwebp",
-    "requires": ["webp"],
+    "requires": [
+      "webp"
+    ],
     "file": "files/convert-to-webp.shortcut"
   },
   {
     "name": "Extract Audio from Video",
-    "description": "استخراج الصوت من فيديو باستخدام ffmpeg",
-    "requires": ["ffmpeg"],
+    "description": "استخراج الصوت من فيديو باستخدام ffmpeg شسيب",
+    "requires": [
+      "ffmpeg"
+    ],
+    "file": "files/extract-audio.shortcut"
+  },
+  {
+    "name": "شسيب",
+    "description": "شسيب",
+    "requires": [
+      "ffmpeg"
+    ],
     "file": "files/extract-audio.shortcut"
   }
 ]
