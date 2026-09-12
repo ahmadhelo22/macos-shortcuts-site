@@ -30,7 +30,7 @@ async function loadShortcuts() {
   const statusEl = document.getElementById('status');
 
   try {
-    const response = await fetch('shortcuts.json');
+    const response = await fetch(`shortcuts.json?v=${Date.now()}`, { cache: 'no-store' });
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`);
     }
