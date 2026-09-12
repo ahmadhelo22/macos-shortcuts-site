@@ -1,5 +1,6 @@
 [
   {
+    "slug": "compress-video",
     "name_ar": "ضغط الفيديو",
     "name_en": "Compress Video",
     "description_ar": "ضغط فيديو باستخدام ffmpeg",
@@ -8,6 +9,7 @@
     "file": "files/compress-video.shortcut"
   },
   {
+    "slug": "convert-to-webp",
     "name_ar": "تحويل صورة إلى WebP",
     "name_en": "Convert Image to WebP",
     "description_ar": "تحويل صورة إلى صيغة WebP باستخدام cwebp",
@@ -16,6 +18,7 @@
     "file": "files/convert-to-webp.shortcut"
   },
   {
+    "slug": "extract-audio",
     "name_ar": "استخراج الصوت من الفيديو",
     "name_en": "Extract Audio from Video",
     "description_ar": "استخراج الصوت من فيديو باستخدام ffmpeg",

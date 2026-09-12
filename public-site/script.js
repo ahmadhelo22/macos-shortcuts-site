@@ -1,86 +1,33 @@
-const LANG_STORAGE_KEY = 'site_lang';
-
-const STRINGS = {
-  ar: {
-    dir: 'rtl',
-    title: 'macOS Shortcuts',
-    subtitle: 'مجموعة شورت كاتس جاهزة للتحميل، كل وحدة بتفحص بيئتها وتصلّح نفسها تلقائياً',
-    loading: 'جاري تحميل الشورت كاتس...',
-    empty: 'لا يوجد شورت كاتس متاحة حالياً.',
-    error: 'حدث خطأ أثناء تحميل الشورت كاتس.',
-    download: 'تحميل',
-    footer: 'صُنع بواسطة صاحب المشروع — بدون باك اند، بدون قاعدة بيانات.',
-    toggleLabel: 'English'
-  },
-  en: {
-    dir: 'ltr',
-    title: 'macOS Shortcuts',
-    subtitle: 'A collection of ready-to-download shortcuts, each one checks its environment and self-heals automatically',
-    loading: 'Loading shortcuts...',
-    empty: 'No shortcuts available right now.',
-    error: 'Something went wrong while loading the shortcuts.',
-    download: 'Download',
-    footer: 'Made by the project owner — no backend, no database.',
-    toggleLabel: 'العربية'
-  }
-};
-
-let currentLang = 'ar';
 let shortcutsData = [];
+let lang = { getLang: () => 'ar' };
 
-function safeStorageGet(key) {
-  try {
-    return localStorage.getItem(key);
-  } catch (e) {
-    return null;
-  }
-}
+document.addEventListener('DOMContentLoaded', () => {
+  lang = setupLangToggle((newLang) => {
+    document.getElementById('site-title').textContent = STRINGS[newLang].title;
+    document.getElementById('site-subtitle').textContent = STRINGS[newLang].subtitle;
+    document.getElementById('site-footer-text').textContent = STRINGS[newLang].footer;
 
-function safeStorageSet(key, value) {
-  try {
-    localStorage.setItem(key, value);
-  } catch (e) {
-    // ignore (private browsing / disabled storage)
-  }
-}
-
-function applyLanguage(lang) {
-  currentLang = lang;
-  const t = STRINGS[lang];
-
-  document.documentElement.lang = lang;
-  document.documentElement.dir = t.dir;
-
-  document.getElementById('site-title').textContent = t.title;
-  document.getElementById('site-subtitle').textContent = t.subtitle;
-  document.getElementById('site-footer-text').textContent = t.footer;
-  document.getElementById('lang-toggle').textContent = t.toggleLabel;
-
-  const statusEl = document.getElementById('status');
-  if (statusEl) {
-    if (statusEl.classList.contains('error')) {
-      statusEl.textContent = t.error;
-    } else if (statusEl.classList.contains('empty-msg')) {
-      statusEl.textContent = t.empty;
-    } else {
-      statusEl.textContent = t.loading;
+    const statusEl = document.getElementById('status');
+    if (statusEl) {
+      if (statusEl.classList.contains('error')) {
+        statusEl.textContent = STRINGS[newLang].error;
+      } else if (statusEl.classList.contains('empty-msg')) {
+        statusEl.textContent = STRINGS[newLang].empty;
+      } else {
+        statusEl.textContent = STRINGS[newLang].loading;
+      }
     }
-  }
 
-  if (shortcutsData.length > 0) {
-    renderShortcuts();
-  }
-}
+    if (shortcutsData.length > 0) {
+      renderShortcuts();
+    }
+  });
 
-document.getElementById('lang-toggle').addEventListener('click', () => {
-  const nextLang = currentLang === 'ar' ? 'en' : 'ar';
-  safeStorageSet(LANG_STORAGE_KEY, nextLang);
-  applyLanguage(nextLang);
+  loadShortcuts();
 });
 
 async function loadShortcuts() {
   const statusEl = document.getElementById('status');
-  const grid = document.getElementById('shortcuts-grid');
 
   try {
     const response = await fetch('shortcuts.json');
@@ -90,7 +37,7 @@ async function loadShortcuts() {
     const shortcuts = await response.json();
 
     if (!Array.isArray(shortcuts) || shortcuts.length === 0) {
-      statusEl.textContent = STRINGS[currentLang].empty;
+      statusEl.textContent = STRINGS[lang.getLang()].empty;
       statusEl.classList.add('empty-msg');
       return;
     }
@@ -99,7 +46,7 @@ async function loadShortcuts() {
     statusEl.remove();
     renderShortcuts();
   } catch (err) {
-    statusEl.textContent = STRINGS[currentLang].error;
+    statusEl.textContent = STRINGS[lang.getLang()].error;
     statusEl.classList.add('error');
     console.error('Failed to load shortcuts.json:', err);
   }
@@ -112,15 +59,22 @@ function renderShortcuts() {
 }
 
 function renderCard(shortcut) {
+  const currentLang = lang.getLang();
+  const name = currentLang === 'ar' ? shortcut.name_ar : shortcut.name_en;
+  const description = currentLang === 'ar' ? shortcut.description_ar : shortcut.description_en;
+  const detailUrl = `shortcuts/${shortcut.slug}.html`;
+
   const card = document.createElement('article');
   card.className = 'card';
 
-  const name = currentLang === 'ar' ? shortcut.name_ar : shortcut.name_en;
-  const description = currentLang === 'ar' ? shortcut.description_ar : shortcut.description_en;
+  const titleLink = document.createElement('a');
+  titleLink.href = detailUrl;
+  titleLink.className = 'card-title-link';
 
   const title = document.createElement('h2');
   title.textContent = name;
-  card.appendChild(title);
+  titleLink.appendChild(title);
+  card.appendChild(titleLink);
 
   const descriptionEl = document.createElement('p');
   descriptionEl.textContent = description;
@@ -152,10 +106,3 @@ function renderCard(shortcut) {
 function onDownloadClick(shortcut) {
   // مكان مخصص لتتبع التحميلات (Google Analytics 4) — يُستكمل في خطوة لاحقة من الخطة.
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  const savedLang = safeStorageGet(LANG_STORAGE_KEY);
-  currentLang = savedLang === 'en' || savedLang === 'ar' ? savedLang : 'ar';
-  applyLanguage(currentLang);
-  loadShortcuts();
-});
