@@ -31,14 +31,5 @@
       "ffmpeg"
     ],
     "file": "files/extract-audio.shortcut"
-  },
-  {
-    "slug": "",
-    "name_ar": "",
-    "name_en": "",
-    "description_ar": "",
-    "description_en": "",
-    "requires": [],
-    "file": ""
   }
 ]
