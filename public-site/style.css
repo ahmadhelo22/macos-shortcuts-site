@@ -1,12 +1,13 @@
 :root {
-  --bg: #0d0d0f;
-  --card-bg: #18181b;
-  --border: #2a2a2e;
-  --text: #f2f2f3;
-  --text-muted: #9a9aa2;
-  --accent: #0a84ff;
-  --accent-hover: #369bff;
-  --tag-bg: #232327;
+  --bg: #f5ebdd;
+  --card-bg: #fffaf3;
+  --border: #e3d5bf;
+  --text: #413333;
+  --text-muted: #7a655f;
+  --accent: #f2765e;
+  --accent-hover: #d95f48;
+  --tag-bg: #315b8c1a;
+  --tag-text: #315b8c;
 }
 
 * {
@@ -84,7 +85,7 @@ body {
 
 .tag {
   background: var(--tag-bg);
-  color: var(--text-muted);
+  color: var(--tag-text);
   font-size: 0.75rem;
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
