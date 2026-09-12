@@ -20,16 +20,5 @@
       "webp"
     ],
     "file": "files/convert-to-webp.shortcut"
-  },
-  {
-    "slug": "extract-audio",
-    "name_ar": "استخراج الصوت من الفيديو",
-    "name_en": "Extract Audio from Video",
-    "description_ar": "استخراج الصوت من فيديو باستخدام ffmpeg",
-    "description_en": "Extract audio from a video using ffmpeg",
-    "requires": [
-      "ffmpeg"
-    ],
-    "file": "files/extract-audio.shortcut"
   }
 ]
