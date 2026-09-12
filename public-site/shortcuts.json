@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "slug": "شسيب",
+    "name_ar": "شسيب",
+    "name_en": "شسيب",
+    "description_ar": "شسيب",
+    "description_en": "شسيب",
+    "requires": [
+      "شسيب"
+    ],
+    "file": "شسبي"
+  }
+]
