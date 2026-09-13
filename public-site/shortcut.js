@@ -56,6 +56,7 @@ function render() {
   const images = Array.isArray(shortcutItem.images) ? shortcutItem.images : [];
   if (images.length > 0) {
     imagesWrap.hidden = false;
+    imagesWrap.classList.toggle('multi', images.length > 1);
     images.forEach((src) => {
       const img = document.createElement('img');
       img.src = src;
