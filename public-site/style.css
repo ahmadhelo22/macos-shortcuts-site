@@ -84,12 +84,19 @@ body {
 
 .card {
   background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  border: 2px solid var(--text);
+  border-radius: 10px;
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  box-shadow: 4px 4px 0 var(--text);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--text);
 }
 
 .card h2 {
