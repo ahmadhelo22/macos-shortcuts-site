@@ -8,7 +8,7 @@
     "details_ar": "",
     "details_en": "",
     "images": [
-      "12 2.png"
+      "images/12 2.png"
     ],
     "requires": [
       "ffmpeg"
