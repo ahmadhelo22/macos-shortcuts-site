@@ -51,6 +51,40 @@ function render() {
   document.getElementById('shortcut-description').textContent = description;
   document.getElementById('requires-label').textContent = t.requiresLabel;
 
+  const imagesWrap = document.getElementById('shortcut-images');
+  imagesWrap.innerHTML = '';
+  const images = Array.isArray(shortcutItem.images) ? shortcutItem.images : [];
+  if (images.length > 0) {
+    imagesWrap.hidden = false;
+    images.forEach((src) => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = name;
+      img.loading = 'lazy';
+      imagesWrap.appendChild(img);
+    });
+  } else {
+    imagesWrap.hidden = true;
+  }
+
+  const details = currentLang === 'ar' ? shortcutItem.details_ar : shortcutItem.details_en;
+  const detailsWrap = document.getElementById('shortcut-details');
+  detailsWrap.innerHTML = '';
+  if (details && details.trim()) {
+    detailsWrap.hidden = false;
+    const label = document.createElement('h3');
+    label.className = 'details-label';
+    label.textContent = t.detailsLabel;
+    detailsWrap.appendChild(label);
+    details.split('\n').filter((line) => line.trim()).forEach((paragraph) => {
+      const p = document.createElement('p');
+      p.textContent = paragraph;
+      detailsWrap.appendChild(p);
+    });
+  } else {
+    detailsWrap.hidden = true;
+  }
+
   const requiresWrap = document.getElementById('shortcut-requires');
   requiresWrap.innerHTML = '';
   (shortcutItem.requires || []).forEach((tool) => {
