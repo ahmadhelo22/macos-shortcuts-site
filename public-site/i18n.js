@@ -12,7 +12,7 @@ const STRINGS = {
     download: 'تحميل',
     requiresLabel: 'الأدوات المطلوبة',
     backLink: '→ الرجوع لكل الشورت كاتس',
-    footer: 'صُنع بواسطة صاحب المشروع — بدون باك اند، بدون قاعدة بيانات.',
+    footer: 'جميع الحقوق محفوظة لدى أحمد الحلو',
     toggleLabel: 'English'
   },
   en: {
@@ -26,7 +26,7 @@ const STRINGS = {
     download: 'Download',
     requiresLabel: 'Requires',
     backLink: '← Back to all shortcuts',
-    footer: 'Made by the project owner — no backend, no database.',
+    footer: 'All rights reserved to Ahmad Alhelo',
     toggleLabel: 'العربية'
   }
 };
