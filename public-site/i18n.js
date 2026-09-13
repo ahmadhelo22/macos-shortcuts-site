@@ -13,7 +13,7 @@ const STRINGS = {
     viewDetails: 'عرض التفاصيل',
     requiresLabel: 'الأدوات المطلوبة',
     backLink: '→ الرجوع لكل الشورت كاتس',
-    footer: 'جميع الحقوق محفوظة لدى أحمد الحلو',
+    footer: 'جميع الحقوق محفوظة لدى Ahmad Alhelo',
     toggleLabel: 'English'
   },
   en: {
