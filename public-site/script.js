@@ -92,17 +92,12 @@ function renderCard(shortcut) {
     card.appendChild(requiresWrap);
   }
 
-  const downloadBtn = document.createElement('a');
-  downloadBtn.className = 'download-btn';
-  downloadBtn.href = shortcut.file;
-  downloadBtn.innerHTML = `<span class="arrow">&#8595;</span> ${STRINGS[currentLang].download}`;
-  downloadBtn.setAttribute('download', '');
-  downloadBtn.addEventListener('click', () => onDownloadClick(shortcut));
-  card.appendChild(downloadBtn);
+  const viewBtn = document.createElement('a');
+  viewBtn.className = 'view-btn';
+  viewBtn.href = detailUrl;
+  const arrow = currentLang === 'ar' ? '&#8592;' : '&#8594;';
+  viewBtn.innerHTML = `<span class="arrow">${arrow}</span> ${STRINGS[currentLang].viewDetails}`;
+  card.appendChild(viewBtn);
 
   return card;
-}
-
-function onDownloadClick(shortcut) {
-  // مكان مخصص لتتبع التحميلات (Google Analytics 4) — يُستكمل في خطوة لاحقة من الخطة.
 }
