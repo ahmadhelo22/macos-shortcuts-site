@@ -36,6 +36,10 @@ async function loadShortcut() {
     detailCard.hidden = false;
     detailCard.classList.add('animate-in');
     render();
+
+    document.getElementById('shortcut-download').addEventListener('click', (e) => {
+      celebrateDownload(e.currentTarget);
+    });
   } catch (err) {
     skeletonEl.hidden = true;
     statusEl.textContent = STRINGS[lang.getLang()].error;
@@ -105,4 +109,28 @@ function render() {
   const downloadBtn = document.getElementById('shortcut-download');
   downloadBtn.href = shortcutItem.file;
   downloadBtn.innerHTML = `<span class="arrow">&#8595;</span> ${t.download}`;
+}
+
+function celebrateDownload(button) {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const colors = ['#f2765e', '#315b8c', '#413333', '#d95f48'];
+  const rect = button.getBoundingClientRect();
+  const originX = rect.left + rect.width / 2;
+  const originY = rect.top + rect.height / 2;
+  const count = 14;
+
+  for (let i = 0; i < count; i++) {
+    const particle = document.createElement('span');
+    particle.className = 'confetti-particle';
+    const angle = (Math.PI * 2 * i) / count + Math.random() * 0.4;
+    const distance = 60 + Math.random() * 50;
+    particle.style.setProperty('--dx', `${Math.cos(angle) * distance}px`);
+    particle.style.setProperty('--dy', `${Math.sin(angle) * distance}px`);
+    particle.style.left = `${originX}px`;
+    particle.style.top = `${originY}px`;
+    particle.style.background = colors[i % colors.length];
+    document.body.appendChild(particle);
+    particle.addEventListener('animationend', () => particle.remove());
+  }
 }

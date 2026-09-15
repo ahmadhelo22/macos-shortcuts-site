@@ -29,6 +29,92 @@ body {
   line-height: 1.6;
 }
 
+/* subtle grain texture over the whole page, purely decorative */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* floating decorative background blobs */
+.bg-decor {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.bg-decor .blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+.bg-decor .blob-1 {
+  width: 18rem;
+  height: 18rem;
+  top: -6rem;
+  left: -4rem;
+  background: var(--accent);
+  opacity: 0.22;
+}
+
+.bg-decor .blob-2 {
+  width: 14rem;
+  height: 14rem;
+  bottom: -5rem;
+  right: -3rem;
+  background: var(--tag-text);
+  opacity: 0.2;
+}
+
+.bg-decor .blob-3 {
+  width: 10rem;
+  height: 10rem;
+  top: 45%;
+  right: 8%;
+  background: var(--accent);
+  opacity: 0.15;
+}
+
+.bg-decor .blob-4 {
+  width: 8rem;
+  height: 8rem;
+  bottom: 18%;
+  left: 6%;
+  background: var(--tag-text);
+  opacity: 0.15;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .bg-decor .blob-1 {
+    animation: floatSlow 22s ease-in-out infinite;
+  }
+  .bg-decor .blob-2 {
+    animation: floatSlow 26s ease-in-out infinite reverse;
+  }
+  .bg-decor .blob-3 {
+    animation: floatSlow 18s ease-in-out infinite;
+  }
+  .bg-decor .blob-4 {
+    animation: floatSlow 24s ease-in-out infinite reverse;
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(22px, -26px);
+  }
+}
+
 .lang-toggle-btn {
   position: absolute;
   top: 1rem;
@@ -94,6 +180,41 @@ body {
 .site-header h1 {
   margin: 0 0 0.5rem;
   font-size: 2rem;
+}
+
+.title-underline {
+  display: block;
+  width: 10rem;
+  height: 0.7rem;
+  margin: 0.2rem auto 0.8rem;
+  overflow: visible;
+}
+
+.title-underline path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 260;
+  stroke-dashoffset: 260;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .title-underline path {
+    animation: drawUnderline 0.9s 0.35s ease forwards;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .title-underline path {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawUnderline {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 .subtitle {
@@ -376,5 +497,29 @@ body {
   }
   100% {
     background-position: 0 50%;
+  }
+}
+
+/* --- celebration burst on download click --- */
+.confetti-particle {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .confetti-particle {
+    animation: confettiBurst 0.7s ease-out forwards;
+  }
+}
+
+@keyframes confettiBurst {
+  to {
+    transform: translate(var(--dx), var(--dy)) rotate(180deg) scale(0.4);
+    opacity: 0;
   }
 }
