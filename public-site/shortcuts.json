@@ -5,6 +5,7 @@
     "name_en": "Compress Video",
     "description_ar": "ضغط فيديو باستخدام ffmpeg",
     "description_en": "Compress a video using ffmpeg",
+    "thumbnail": "",
     "details_ar": "",
     "details_en": "",
     "images": [
@@ -21,6 +22,7 @@
     "name_en": "Convert Image to WebP",
     "description_ar": "تحويل صورة إلى صيغة WebP باستخدام cwebp",
     "description_en": "Convert an image to WebP format using cwebp",
+    "thumbnail": "",
     "details_ar": "",
     "details_en": "",
     "images": [],
@@ -35,6 +37,7 @@
     "name_en": "Extract Audio from Video",
     "description_ar": "استخراج الصوت من فيديو باستخدام ffmpeg",
     "description_en": "Extract audio from a video using ffmpeg",
+    "thumbnail": "",
     "details_ar": "",
     "details_en": "",
     "images": [],

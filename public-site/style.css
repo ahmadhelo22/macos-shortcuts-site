@@ -257,6 +257,16 @@ body::after {
   box-shadow: 6px 6px 0 var(--text);
 }
 
+.card-thumbnail {
+  display: block;
+  width: calc(100% + 2.5rem);
+  max-width: none;
+  margin: -1.25rem -1.25rem 0;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
 .card h2 {
   margin: 0;
   font-size: 1.15rem;

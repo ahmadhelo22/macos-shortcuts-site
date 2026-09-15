@@ -89,6 +89,15 @@ function renderCard(shortcut) {
   const card = document.createElement('article');
   card.className = 'card animate-in';
 
+  if (shortcut.thumbnail) {
+    const thumb = document.createElement('img');
+    thumb.className = 'card-thumbnail';
+    thumb.src = `shortcuts/${shortcut.thumbnail}`;
+    thumb.alt = name;
+    thumb.loading = 'lazy';
+    card.appendChild(thumb);
+  }
+
   const titleLink = document.createElement('a');
   titleLink.href = detailUrl;
   titleLink.className = 'card-title-link';
