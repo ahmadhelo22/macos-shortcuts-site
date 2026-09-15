@@ -8,13 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('site-footer-text').textContent = STRINGS[newLang].footer;
 
     const statusEl = document.getElementById('status');
-    if (statusEl) {
+    if (!statusEl.hidden) {
       if (statusEl.classList.contains('error')) {
         statusEl.textContent = STRINGS[newLang].error;
       } else if (statusEl.classList.contains('empty-msg')) {
         statusEl.textContent = STRINGS[newLang].empty;
-      } else {
-        statusEl.textContent = STRINGS[newLang].loading;
       }
     }
 
@@ -23,8 +21,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  renderSkeletonCards();
   loadShortcuts();
 });
+
+function renderSkeletonCards(count = 3) {
+  const grid = document.getElementById('shortcuts-grid');
+  grid.innerHTML = '';
+  for (let i = 0; i < count; i++) {
+    const card = document.createElement('div');
+    card.className = 'card skeleton-card';
+    card.innerHTML = `
+      <div class="skeleton-block" style="width: 55%; height: 1.15rem;"></div>
+      <div class="skeleton-block" style="width: 90%;"></div>
+      <div class="skeleton-block" style="width: 70%;"></div>
+      <div class="skeleton-block" style="width: 100%; height: 2.6rem;"></div>
+    `;
+    grid.appendChild(card);
+  }
+}
 
 async function loadShortcuts() {
   const statusEl = document.getElementById('status');
@@ -37,17 +52,20 @@ async function loadShortcuts() {
     const shortcuts = await response.json();
 
     if (!Array.isArray(shortcuts) || shortcuts.length === 0) {
+      document.getElementById('shortcuts-grid').innerHTML = '';
       statusEl.textContent = STRINGS[lang.getLang()].empty;
       statusEl.classList.add('empty-msg');
+      statusEl.hidden = false;
       return;
     }
 
     shortcutsData = shortcuts;
-    statusEl.remove();
     renderShortcuts();
   } catch (err) {
+    document.getElementById('shortcuts-grid').innerHTML = '';
     statusEl.textContent = STRINGS[lang.getLang()].error;
     statusEl.classList.add('error');
+    statusEl.hidden = false;
     console.error('Failed to load shortcuts.json:', err);
   }
 }
@@ -55,7 +73,11 @@ async function loadShortcuts() {
 function renderShortcuts() {
   const grid = document.getElementById('shortcuts-grid');
   grid.innerHTML = '';
-  shortcutsData.forEach((shortcut) => grid.appendChild(renderCard(shortcut)));
+  shortcutsData.forEach((shortcut, index) => {
+    const card = renderCard(shortcut);
+    card.style.animationDelay = `${index * 60}ms`;
+    grid.appendChild(card);
+  });
 }
 
 function renderCard(shortcut) {
@@ -65,7 +87,7 @@ function renderCard(shortcut) {
   const detailUrl = `shortcuts/${shortcut.slug}.html`;
 
   const card = document.createElement('article');
-  card.className = 'card';
+  card.className = 'card animate-in';
 
   const titleLink = document.createElement('a');
   titleLink.href = detailUrl;

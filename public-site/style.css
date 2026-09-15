@@ -14,6 +14,13 @@
   box-sizing: border-box;
 }
 
+/* Defensive: some elements we toggle with the `hidden` attribute (e.g. .card)
+   also set their own `display`, which otherwise wins over the browser's
+   default [hidden] rule and leaves the element visible. */
+[hidden] {
+  display: none !important;
+}
+
 body {
   margin: 0;
   background: var(--bg);
@@ -325,4 +332,49 @@ body {
 
 .footer-github-link:hover {
   color: var(--text);
+}
+
+/* --- entrance animation --- */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-in {
+    animation: fadeSlideUp 0.55s ease both;
+  }
+}
+
+/* --- skeleton loading placeholders --- */
+.skeleton-card {
+  cursor: default;
+}
+
+.skeleton-block {
+  height: 1rem;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--border) 25%, var(--card-bg) 50%, var(--border) 75%);
+  background-size: 400% 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .skeleton-block {
+    animation: skeletonShimmer 1.4s ease infinite;
+  }
+}
+
+@keyframes skeletonShimmer {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
 }

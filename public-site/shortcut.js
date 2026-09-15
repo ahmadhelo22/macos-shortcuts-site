@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function loadShortcut() {
   const statusEl = document.getElementById('status');
+  const skeletonEl = document.getElementById('skeleton-detail');
 
   try {
     const response = await fetch(`../shortcuts.json?v=${Date.now()}`, { cache: 'no-store' });
@@ -23,17 +24,23 @@ async function loadShortcut() {
     shortcutItem = shortcuts.find((s) => s.slug === window.SHORTCUT_SLUG) || null;
 
     if (!shortcutItem) {
+      skeletonEl.hidden = true;
       statusEl.textContent = STRINGS[lang.getLang()].notFound;
       statusEl.classList.add('error');
+      statusEl.hidden = false;
       return;
     }
 
-    statusEl.remove();
-    document.getElementById('detail-card').hidden = false;
+    skeletonEl.hidden = true;
+    const detailCard = document.getElementById('detail-card');
+    detailCard.hidden = false;
+    detailCard.classList.add('animate-in');
     render();
   } catch (err) {
+    skeletonEl.hidden = true;
     statusEl.textContent = STRINGS[lang.getLang()].error;
     statusEl.classList.add('error');
+    statusEl.hidden = false;
     console.error('Failed to load shortcuts.json:', err);
   }
 }
