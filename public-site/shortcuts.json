@@ -1,5 +1,27 @@
 [
   {
+    "slug": "youtube-to-mp3",
+    "name_ar": "تحميل يوتيوب كـ MP3",
+    "name_en": "YouTube to MP3",
+    "description_ar": "شارك رابط فيديو (أو انسخه) وشغّل الشورت كات، وبينزل الصوت كملف MP3 مع صورة الغلاف على سطح المكتب. بيجهّز أدواته وبيصلّح حاله لحاله.",
+    "description_en": "Share (or copy) a video link and run the shortcut: the audio lands on your Desktop as an MP3 with its cover art. It sets up and repairs its own tools.",
+    "thumbnail": "images/youtube-to-mp3/thumb.jpg",
+    "details_ar": "طريقة الاستخدام: من Safari أو أي تطبيق، اضغط زر المشاركة (Share) واختر YouTube to MP3. أو انسخ الرابط وشغّل الشورت كات من تطبيق Shortcuts أو من Quick Actions، وهو بيقرأ الرابط من الحافظة لحاله. بتقدر تعطيه أكتر من رابط بنفس المرة.\nالصورة ١: الشورت كات بمكتبة Shortcuts، والملخص بيوضح شو بيعمل: بيجهّز أدوات التحويل، بينزّل الصوت من الروابط، وبيحفظ الملفات على سطح المكتب.\nالصورة ٢: أول خطوة (Receive) بتستقبل الرابط من Share Sheet أو Quick Actions، وإذا ما في مدخلات بيكمل وبيدوّر بالحافظة. بعدها خطوة Run Shell Script هي يلي بتعمل كل الشغل، وآخر خطوة بترجع مسار الملف الجاهز.\nالصورة ٣: الإصلاح الذاتي. قبل كل تحميل بيتأكد إنو yt-dlp و ffmpeg و deno موجودين وشغّالين. إذا ناقص شي أو خربان، بينزّله لحاله على مجلد خاص فيه (⁦~/Library/Application Support/YTAudio⁩) بدون Homebrew وبدون كلمة سر، وبيحدّث الأدوات كل أسبوع. Homebrew بس حل أخير.\nالصورة ٤: إذا فشل التحميل بيعيد المحاولة لحد ٤ مرات بطرق مختلفة: محاولة عادية، بعدين بيصلّح الأدوات ويعيد، بعدين بيجرب نسخة nightly من yt-dlp فيها آخر إصلاحات يوتيوب، وآخر شي بيحمّل بدون صورة الغلاف.\nالنتيجة: ملف MP3 باسم الفيديو، مع العنوان والمعلومات وصورة الغلاف، على سطح المكتب (وإذا ما في صلاحية كتابة هناك بيحفظه بـ Downloads). بتوصلك إشعارات بكل مرحلة، وإذا صار خطأ بيقلك السبب بوضوح (فيديو خاص، ما في انترنت، يوتيوب طالب تسجيل دخول...). السجل الكامل موجود بـ ⁦~/Library/Logs/YTAudio.log⁩.",
+    "details_en": "How to use: in Safari or any app, tap Share and pick YouTube to MP3. Or copy the link and run the shortcut from the Shortcuts app or Quick Actions; it reads the link from the clipboard on its own. You can pass several links at once.\nImage 1: the shortcut in the Shortcuts library. Its summary says what it does: prepares the conversion tools, downloads audio from the links, and saves the files to your Desktop.\nImage 2: the first step (Receive) takes the link from the Share Sheet or Quick Actions; with no input it carries on and checks the clipboard. The Run Shell Script step does all the work, and the last step returns the path of the finished file.\nImage 3: self-repair. Before every download it checks that yt-dlp, ffmpeg and deno are present and working. If something is missing or broken it downloads it into its own folder (~/Library/Application Support/YTAudio) with no Homebrew and no password, and refreshes the tools weekly. Homebrew is only the last resort.\nImage 4: if a download fails it retries up to 4 times, each a different way: a normal attempt, then repair the tools and retry, then switch yt-dlp to the nightly build with the latest YouTube fixes, and finally download without the cover art.\nThe result: an MP3 named after the video, with its title, metadata and cover art, on your Desktop (or in Downloads if the Desktop isn't writable). Notifications keep you posted, and errors say what went wrong (private video, no internet, YouTube asking to sign in...). The full log is at ~/Library/Logs/YTAudio.log.",
+    "images": [
+      "images/youtube-to-mp3/01-library.jpg",
+      "images/youtube-to-mp3/02-actions.jpg",
+      "images/youtube-to-mp3/03-self-healing.jpg",
+      "images/youtube-to-mp3/04-retries.jpg"
+    ],
+    "requires": [
+      "yt-dlp",
+      "ffmpeg",
+      "deno"
+    ],
+    "file": "files/youtube-to-mp3.shortcut"
+  },
+  {
     "slug": "compress-video",
     "name_ar": "ضغط الفيديو",
     "name_en": "Compress Video",
