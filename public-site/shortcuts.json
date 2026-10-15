@@ -22,6 +22,28 @@
     "file": "files/link-to-mp3.shortcut"
   },
   {
+    "slug": "download-any-video",
+    "name_ar": "تحميل أي فيديو",
+    "name_en": "Download Any Video",
+    "description_ar": "انسخ رابط فيديو من يوتيوب أو انستغرام أو تيك توك أو أي موقع تاني، واختار الجودة، وبينزل كملف MP4 بيشتغل على الماك والآيفون. بيجهّز أدواته وبيصلّح حاله لحاله.",
+    "description_en": "Copy a video link from YouTube, Instagram, TikTok or almost any site, pick the quality, and get an MP4 that plays on your Mac and iPhone. It sets up and repairs its own tools.",
+    "thumbnail": "images/download-any-video/thumb.jpg",
+    "details_ar": "طريقة الاستخدام: انسخ رابط الفيديو واضغط ⁦⌃⌥⌘V⁩ من أي تطبيق. الاختصار بيتسجّل لحاله أول مرة بتشغّل فيها الشورت كات. أو من زر المشاركة (Share) اختار Download Any Video، أو شغّلها من تطبيق Shortcuts أو من Quick Actions. بتشتغل مع يوتيوب وانستغرام وتيك توك و X وفيسبوك و Vimeo وأكتر من 1000 موقع تاني، وبتقبل أكتر من رابط بنفس المرة.\nالصورة ١: الشورت كات بمكتبة Shortcuts، والملخص بيوضح شو بتعمل: بتخليك تختار الجودة، بتنزّل الفيديو، بتحوّله لصيغة متوافقة، وبتحفظ الملف.\nالصورة ٢: خطوة Receive بتستقبل الرابط من Share Sheet أو Quick Actions، وإذا ما في مدخلات بتاخده من الحافظة. خطوة Run Shell Script هي يلي بتعمل كل الشغل. وعلى اليمين إعداداتها: بتطلع بقائمة المشاركة، وكـ Quick Action، وبقائمة Services.\nالصورة ٣: اختيار الجودة. قبل التحميل بتفحص الفيديو وبتفتحلك نافذة فيها بس الجودات المتوفرة فيه (4K و 1440p بيطلعوا بس إذا الفيديو فيه هالجودة)، وبتتذكر آخر جودة اخترتها. إذا ضغطت Cancel ما بينزل شي.\nالصورة ٤: التوافق مع أجهزة Apple. الملف دايماً بيطلع MP4 بيشتغل على QuickTime و Photos والآيفون. إذا الفيديو بصيغة ما بتشتغل على أجهزة Apple (VP9 أو AV1 أو Opus، متل فيديوهات يوتيوب فوق 1080p) بتحوّله بمعالج الماك نفسه، وإذا فشل التحويل بتخلّي الملف الأصلي، فالتحميل ما بيضيع.\nالإصلاح الذاتي: بتنزّل yt-dlp و ffmpeg و deno لحالها على مجلد خاص فيها (⁦~/Library/Application Support/DownloadAnyVideo⁩) بدون Homebrew وبدون كلمة سر، وإذا Link to MP3 منزّلة عندك بتستعمل نفس الأدوات. بتحدّث yt-dlp كل 12 ساعة. وإذا فشل التحميل بتصلّح الأدوات وبتعيد، بعدين بتجرب نسخة nightly من yt-dlp، وآخر شي بتحمّل بدون صورة الغلاف. وإذا الموقع طالب تسجيل دخول بتجرب جلستك من المتصفح (Firefox أو Chrome أو غيرهم) على جهازك.\nالنتيجة: ملف MP4 على سطح المكتب باسم الفيديو وجودته، مع العنوان والمعلومات والفصول وصورة الغلاف (وإذا ما في صلاحية كتابة على سطح المكتب بيتحفظ بـ Downloads). لازم يكون في 1GB مساحة فاضية على الأقل. بتوصلك إشعارات بكل مرحلة، وإذا صار خطأ بتقلك السبب بوضوح. السجل الكامل موجود بـ ⁦~/Library/Logs/DownloadAnyVideo.log⁩.",
+    "details_en": "How to use: copy a video link and press ⌃⌥⌘V from any app. The keyboard shortcut is set up automatically the first time the shortcut runs. Or tap Share and pick Download Any Video, or run it from the Shortcuts app or Quick Actions. It works with YouTube, Instagram, TikTok, X, Facebook, Vimeo and 1000+ other sites, and takes several links at once.\nImage 1: the shortcut in the Shortcuts library. Its summary says what it does: lets you choose a quality, downloads the video, converts it to a compatible format, and saves the file.\nImage 2: the Receive step takes the link from the Share Sheet or Quick Actions; with no input it reads the clipboard. The Run Shell Script step does all the work. On the right are its settings: it shows up in the Share Sheet, as a Quick Action, and in the Services menu.\nImage 3: choosing the quality. Before downloading it checks the video and opens a picker that lists only the qualities that video has (4K and 1440p appear only when available), and it remembers your last choice. Pressing Cancel downloads nothing.\nImage 4: Apple compatibility. The result is always an MP4 that plays in QuickTime, Photos and on iPhone. Videos in codecs Apple devices can't play (VP9, AV1 or Opus, as YouTube uses above 1080p) are converted with the Mac's own hardware encoder, and if conversion fails the original file is kept, so the download is never lost.\nSelf-repair: it downloads yt-dlp, ffmpeg and deno into its own folder (~/Library/Application Support/DownloadAnyVideo) with no Homebrew and no password, and reuses Link to MP3's tools if you have it. yt-dlp is updated every 12 hours. If a download fails it repairs the tools and retries, then tries yt-dlp's nightly build, and finally downloads without the cover art. If a site requires login, it tries your browser session (Firefox, Chrome and others) locally.\nThe result: an MP4 on your Desktop named after the video and its quality, with title, metadata, chapters and cover art (or in Downloads if the Desktop isn't writable). It needs at least 1 GB of free space. Notifications keep you posted, and errors say clearly what went wrong. The full log is at ~/Library/Logs/DownloadAnyVideo.log.",
+    "images": [
+      "images/download-any-video/01-library.jpg",
+      "images/download-any-video/02-actions.jpg",
+      "images/download-any-video/03-quality.jpg",
+      "images/download-any-video/04-apple-compatible.jpg"
+    ],
+    "requires": [
+      "yt-dlp",
+      "ffmpeg",
+      "deno"
+    ],
+    "file": "files/download-any-video.shortcut"
+  },
+  {
     "slug": "compress-video",
     "name_ar": "ضغط الفيديو",
     "name_en": "Compress Video",
