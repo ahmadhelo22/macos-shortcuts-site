@@ -107,7 +107,7 @@ function render() {
   });
 
   const downloadBtn = document.getElementById('shortcut-download');
-  downloadBtn.href = shortcutItem.file;
+  downloadBtn.href = `../${shortcutItem.file}`;
   downloadBtn.innerHTML = `<span class="arrow">&#8595;</span> ${t.download}`;
 }
 
