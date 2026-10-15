@@ -1,25 +1,25 @@
 [
   {
-    "slug": "youtube-to-mp3",
-    "name_ar": "تحميل يوتيوب كـ MP3",
-    "name_en": "YouTube to MP3",
-    "description_ar": "شارك رابط فيديو (أو انسخه) وشغّل الشورت كات، وبينزل الصوت كملف MP3 مع صورة الغلاف على سطح المكتب. بيجهّز أدواته وبيصلّح حاله لحاله.",
-    "description_en": "Share (or copy) a video link and run the shortcut: the audio lands on your Desktop as an MP3 with its cover art. It sets up and repairs its own tools.",
-    "thumbnail": "images/youtube-to-mp3/thumb.jpg",
-    "details_ar": "طريقة الاستخدام: من Safari أو أي تطبيق، اضغط زر المشاركة (Share) واختر YouTube to MP3. أو انسخ الرابط وشغّل الشورت كات من تطبيق Shortcuts أو من Quick Actions، وهو بيقرأ الرابط من الحافظة لحاله. بتقدر تعطيه أكتر من رابط بنفس المرة.\nالصورة ١: الشورت كات بمكتبة Shortcuts، والملخص بيوضح شو بيعمل: بيجهّز أدوات التحويل، بينزّل الصوت من الروابط، وبيحفظ الملفات على سطح المكتب.\nالصورة ٢: أول خطوة (Receive) بتستقبل الرابط من Share Sheet أو Quick Actions، وإذا ما في مدخلات بيكمل وبيدوّر بالحافظة. بعدها خطوة Run Shell Script هي يلي بتعمل كل الشغل، وآخر خطوة بترجع مسار الملف الجاهز.\nالصورة ٣: الإصلاح الذاتي. قبل كل تحميل بيتأكد إنو yt-dlp و ffmpeg و deno موجودين وشغّالين. إذا ناقص شي أو خربان، بينزّله لحاله على مجلد خاص فيه (⁦~/Library/Application Support/YTAudio⁩) بدون Homebrew وبدون كلمة سر، وبيحدّث الأدوات كل أسبوع. Homebrew بس حل أخير.\nالصورة ٤: إذا فشل التحميل بيعيد المحاولة لحد ٤ مرات بطرق مختلفة: محاولة عادية، بعدين بيصلّح الأدوات ويعيد، بعدين بيجرب نسخة nightly من yt-dlp فيها آخر إصلاحات يوتيوب، وآخر شي بيحمّل بدون صورة الغلاف.\nالنتيجة: ملف MP3 باسم الفيديو، مع العنوان والمعلومات وصورة الغلاف، على سطح المكتب (وإذا ما في صلاحية كتابة هناك بيحفظه بـ Downloads). بتوصلك إشعارات بكل مرحلة، وإذا صار خطأ بيقلك السبب بوضوح (فيديو خاص، ما في انترنت، يوتيوب طالب تسجيل دخول...). السجل الكامل موجود بـ ⁦~/Library/Logs/YTAudio.log⁩.",
-    "details_en": "How to use: in Safari or any app, tap Share and pick YouTube to MP3. Or copy the link and run the shortcut from the Shortcuts app or Quick Actions; it reads the link from the clipboard on its own. You can pass several links at once.\nImage 1: the shortcut in the Shortcuts library. Its summary says what it does: prepares the conversion tools, downloads audio from the links, and saves the files to your Desktop.\nImage 2: the first step (Receive) takes the link from the Share Sheet or Quick Actions; with no input it carries on and checks the clipboard. The Run Shell Script step does all the work, and the last step returns the path of the finished file.\nImage 3: self-repair. Before every download it checks that yt-dlp, ffmpeg and deno are present and working. If something is missing or broken it downloads it into its own folder (~/Library/Application Support/YTAudio) with no Homebrew and no password, and refreshes the tools weekly. Homebrew is only the last resort.\nImage 4: if a download fails it retries up to 4 times, each a different way: a normal attempt, then repair the tools and retry, then switch yt-dlp to the nightly build with the latest YouTube fixes, and finally download without the cover art.\nThe result: an MP3 named after the video, with its title, metadata and cover art, on your Desktop (or in Downloads if the Desktop isn't writable). Notifications keep you posted, and errors say what went wrong (private video, no internet, YouTube asking to sign in...). The full log is at ~/Library/Logs/YTAudio.log.",
+    "slug": "link-to-mp3",
+    "name_ar": "تحويل رابط إلى MP3",
+    "name_en": "Link to MP3",
+    "description_ar": "انسخ رابط (أو شاركه) من أي موقع تقريباً واضغط ⁦⌃⌥⌘M⁩، وبينزل الصوت كملف MP3 مع صورة الغلاف على سطح المكتب. بيجهّز أدواته وبيحدّثها وبيصلّحها لحاله.",
+    "description_en": "Copy (or share) a link from almost any site and press ⌃⌥⌘M: the audio lands on your Desktop as an MP3 with its cover art. It sets up, updates and repairs its own tools.",
+    "thumbnail": "images/link-to-mp3/thumb.jpg",
+    "details_ar": "طريقة الاستخدام: انسخ الرابط واضغط ⁦⌃⌥⌘M⁩ من أي تطبيق. أو من زر المشاركة (Share) بـ Safari أو أي تطبيق اختار Link to MP3، أو شغّلها من تطبيق Shortcuts أو من Quick Actions. بتقبل أكتر من رابط بنفس المرة، وبتشتغل مع أي موقع بيدعمه yt-dlp (يوتيوب، SoundCloud، روابط الملفات المباشرة، وأكتر من 1700 موقع غيرهم).\nالصورة ١: الشورت كات فيها خطوة وحدة (Run Shell Script) بتعمل كل الشغل. بتستقبل الرابط من Share Sheet أو Quick Actions، وإذا ما في مدخلات بتاخده من الحافظة.\nالصورة ٢: الإصلاح الذاتي. قبل كل تحميل بتتأكد إنو yt-dlp و ffmpeg و deno موجودين وشغّالين، وإذا ناقص شي أو خربان بتنزّله لحالها على مجلد خاص فيها (⁦~/Library/Application Support/LinkToMP3⁩) بدون Homebrew وبدون كلمة سر. بتحدّث yt-dlp كل 12 ساعة، وفوراً إذا فشل التحميل.\nالصورة ٣: إذا فشل التحميل بتعيد المحاولة بطرق مختلفة: بتصلّح الأدوات وبتحدّثها، بعدين بتجرب نسخة nightly من yt-dlp، وآخر شي بتحمّل بدون صورة الغلاف. وإذا الموقع طلب تسجيل دخول، بتعيد المحاولة بجلسة متصفحك (الكوكيز بتنقرا محلياً وبتروح بس للموقع نفسه). Chrome و Brave بيطلبوا إذن Keychain أول مرة، و Safari بيحتاج Full Disk Access.\nالصورة ٤: بأول تشغيل بتسجّل اختصار الكيبورد ⁦⌃⌥⌘M⁩ لحالها (أو تركيبة تانية إذا كان مستخدم) وبتقلك عليه بإشعار. فيك تغيّره من لوحة Details بالشورت كات.\nالنتيجة: ملف MP3 باسم الفيديو، مع العنوان والمعلومات وصورة الغلاف، على سطح المكتب (وإذا ما في صلاحية كتابة هناك بيحفظه بـ Downloads). بتوصلك إشعارات بكل مرحلة، وإذا صار خطأ بتقلك السبب. السجل الكامل موجود بـ ⁦~/Library/Logs/LinkToMP3.log⁩.",
+    "details_en": "How to use: copy a link and press ⌃⌥⌘M from any app. Or pick Link to MP3 from the Share button in Safari or any app, or run it from the Shortcuts app or Quick Actions. It takes several links at once and works with any site yt-dlp supports (YouTube, SoundCloud, direct media links and more than 1,700 others).\nImage 1: the shortcut has a single Run Shell Script step that does all the work. It takes the link from the Share Sheet or Quick Actions, and reads the clipboard when there is no input.\nImage 2: self-repair. Before every download it checks that yt-dlp, ffmpeg and deno are present and working. If something is missing or broken it downloads it into its own folder (~/Library/Application Support/LinkToMP3) with no Homebrew and no password. yt-dlp is updated every 12 hours, and right away when a download fails.\nImage 3: when a download fails it retries in different ways: repair and update the tools, then the nightly build of yt-dlp, then without the cover art. If the site asks you to sign in, it retries with your browser session (cookies are read locally and only sent to that site). Chrome and Brave ask for Keychain access the first time; Safari needs Full Disk Access.\nImage 4: on first run it assigns the keyboard shortcut ⌃⌥⌘M (or another free combination) and tells you in a notification. You can change it in the shortcut's Details panel.\nThe result: an MP3 named after the video, with its title, metadata and cover art, on your Desktop (or in Downloads if the Desktop isn't writable). Notifications keep you posted, and errors say what went wrong. The full log is at ~/Library/Logs/LinkToMP3.log.",
     "images": [
-      "images/youtube-to-mp3/01-library.jpg",
-      "images/youtube-to-mp3/02-actions.jpg",
-      "images/youtube-to-mp3/03-self-healing.jpg",
-      "images/youtube-to-mp3/04-retries.jpg"
+      "images/link-to-mp3/01-actions.jpg",
+      "images/link-to-mp3/02-self-healing.jpg",
+      "images/link-to-mp3/03-retries.jpg",
+      "images/link-to-mp3/04-keyboard-shortcut.jpg"
     ],
     "requires": [
       "yt-dlp",
       "ffmpeg",
       "deno"
     ],
-    "file": "files/youtube-to-mp3.shortcut"
+    "file": "files/link-to-mp3.shortcut"
   },
   {
     "slug": "compress-video",
