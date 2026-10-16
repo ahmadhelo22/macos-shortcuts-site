@@ -34,6 +34,12 @@ const STRINGS = {
     hotkeyName: 'مهم: خلّي اسم الشورت كات متل ما هو لحد ما تشغّلها أول مرة، لأنو التسجيل التلقائي بيدوّر عليها بالاسم.',
     hotkeyImageAlt: 'لوحة Details بتطبيق Shortcuts وفيها سطر Run with',
     exampleTitle: 'مثال عملي',
+    donateLink: 'ادعمني',
+    donateTitle: 'ادعم المشروع',
+    donateIntro: 'كل الشورت كاتس هون مجانية ورح تضل مجانية. إذا وفّرتلك وقت وحابب تدعم شغلي، فيك تعزمني على قهوة. الدعم بيساعدني أعمل شورت كاتس جديدة وضل حدّث الموجودة.',
+    donateSoon: 'روابط الدعم رح تنضاف قريباً.',
+    donateOther: 'ما بدك تدفع؟ ولا يهمك. فيك تدعمني كمان إنك تشارك الموقع مع صحابك أو تتابعني على انستغرام.',
+    supportNote: 'فادتك الشورت كات؟ ادعمني بقهوة',
     keyNames: { '⌃': 'Control', '⌥': 'Option', '⌘': 'Command', '⇧': 'Shift' }
   },
   en: {
@@ -69,6 +75,12 @@ const STRINGS = {
     hotkeyName: 'Important: keep the shortcut’s name as it is until its first run, because the automatic setup looks it up by name.',
     hotkeyImageAlt: 'The Details panel in the Shortcuts app with the Run with line',
     exampleTitle: 'Example',
+    donateLink: 'Support',
+    donateTitle: 'Support the project',
+    donateIntro: 'Every shortcut here is free and will stay free. If one saved you time and you’d like to support my work, you can buy me a coffee. It helps me build new shortcuts and keep the current ones up to date.',
+    donateSoon: 'Support links are coming soon.',
+    donateOther: 'Not up for paying? No problem. Sharing the site with friends or following me on Instagram helps too.',
+    supportNote: 'Did this shortcut help? Buy me a coffee',
     keyNames: { '⌃': 'Control', '⌥': 'Option', '⌘': 'Command', '⇧': 'Shift' }
   }
 };
@@ -111,6 +123,9 @@ function setupLangToggle(onChange) {
     if (btn) {
       btn.textContent = t.toggleLabel;
     }
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      el.textContent = t[el.dataset.i18n];
+    });
     onChange(lang);
   }
 
