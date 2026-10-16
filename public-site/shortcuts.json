@@ -19,7 +19,7 @@
       "ffmpeg",
       "deno"
     ],
-    "file": "files/link-to-mp3.shortcut"
+    "file": "files/Link to MP3.shortcut"
   },
   {
     "slug": "download-any-video",
@@ -41,7 +41,7 @@
       "ffmpeg",
       "deno"
     ],
-    "file": "files/download-any-video.shortcut"
+    "file": "files/Download Any Video.shortcut"
   },
   {
     "slug": "compress-video",
