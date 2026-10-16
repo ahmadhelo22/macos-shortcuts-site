@@ -72,52 +72,5 @@
         "en": "When it's done you get a notification, and the video is on your Desktop."
       }
     ]
-  },
-  {
-    "slug": "compress-video",
-    "name_ar": "ضغط الفيديو",
-    "name_en": "Compress Video",
-    "description_ar": "ضغط فيديو باستخدام ffmpeg",
-    "description_en": "Compress a video using ffmpeg",
-    "thumbnail": "",
-    "details_ar": "",
-    "details_en": "",
-    "images": [
-      "images/12 2.png"
-    ],
-    "requires": [
-      "ffmpeg"
-    ],
-    "file": "files/compress-video.shortcut"
-  },
-  {
-    "slug": "convert-to-webp",
-    "name_ar": "تحويل صورة إلى WebP",
-    "name_en": "Convert Image to WebP",
-    "description_ar": "تحويل صورة إلى صيغة WebP باستخدام cwebp",
-    "description_en": "Convert an image to WebP format using cwebp",
-    "thumbnail": "",
-    "details_ar": "",
-    "details_en": "",
-    "images": [],
-    "requires": [
-      "webp"
-    ],
-    "file": "files/convert-to-webp.shortcut"
-  },
-  {
-    "slug": "extract-audio",
-    "name_ar": "استخراج الصوت من الفيديو",
-    "name_en": "Extract Audio from Video",
-    "description_ar": "استخراج الصوت من فيديو باستخدام ffmpeg",
-    "description_en": "Extract audio from a video using ffmpeg",
-    "thumbnail": "",
-    "details_ar": "",
-    "details_en": "",
-    "images": [],
-    "requires": [
-      "ffmpeg"
-    ],
-    "file": "files/extract-audio.shortcut"
   }
 ]
