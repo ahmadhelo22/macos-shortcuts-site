@@ -106,9 +106,67 @@ function render() {
     requiresWrap.appendChild(tag);
   });
 
+  renderSetupNotice(t);
+
   const downloadBtn = document.getElementById('shortcut-download');
   downloadBtn.href = `../${shortcutItem.file}`;
   downloadBtn.innerHTML = `<span class="arrow">&#8595;</span> ${t.download}`;
+}
+
+// Every shortcut on the site runs a shell script, which the Shortcuts app
+// blocks until "Allow Running Scripts" is on, so show how to enable it
+// right above the download button.
+function renderSetupNotice(t) {
+  const SETTING = 'Allow Running Scripts';
+  let notice = document.getElementById('setup-notice');
+  if (!notice) {
+    notice = document.createElement('section');
+    notice.id = 'setup-notice';
+    notice.className = 'setup-notice';
+    const downloadBtn = document.getElementById('shortcut-download');
+    downloadBtn.parentNode.insertBefore(notice, downloadBtn);
+  }
+  notice.innerHTML = '';
+
+  const settingName = () => {
+    const span = document.createElement('span');
+    span.className = 'setup-setting';
+    span.dir = 'ltr';
+    span.textContent = SETTING;
+    return span;
+  };
+
+  const title = document.createElement('h3');
+  title.className = 'setup-title';
+  title.append(`⚠️ ${t.setupTitle} `, settingName());
+  notice.appendChild(title);
+
+  const intro = document.createElement('p');
+  intro.textContent = t.setupIntro;
+  notice.appendChild(intro);
+
+  const steps = document.createElement('ol');
+  steps.className = 'setup-steps';
+  t.setupSteps.forEach((text, i) => {
+    const li = document.createElement('li');
+    const body = document.createElement('span');
+    body.textContent = text;
+    if (i === t.setupSteps.length - 1) body.append(' ', settingName());
+    li.appendChild(body);
+    steps.appendChild(li);
+  });
+  notice.appendChild(steps);
+
+  const images = document.createElement('div');
+  images.className = 'setup-images';
+  ['allow-scripts-1-settings.jpg', 'allow-scripts-2-advanced.jpg'].forEach((file, i) => {
+    const img = document.createElement('img');
+    img.src = `../images/setup/${file}`;
+    img.alt = t.setupImageAlt[i];
+    img.loading = 'lazy';
+    images.appendChild(img);
+  });
+  notice.appendChild(images);
 }
 
 function celebrateDownload(button) {

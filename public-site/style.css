@@ -433,6 +433,82 @@ body::after {
   margin-bottom: 1.5rem;
 }
 
+/* "Allow Running Scripts" setup notice above the download button */
+.setup-notice {
+  margin-bottom: 1.5rem;
+  padding: 1.1rem 1.25rem;
+  background: #fff1e4;
+  border: 1px solid #ffc89a;
+  border-inline-start: 5px solid #ff7a1a;
+  border-radius: 10px;
+}
+
+.setup-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  color: #c2510a;
+}
+
+.setup-setting {
+  color: #ff7a1a;
+  font-weight: 700;
+  unicode-bidi: isolate;
+}
+
+.detail-card .setup-notice p {
+  margin: 0 0 0.75rem;
+  color: var(--text);
+}
+
+.setup-steps {
+  list-style: none;
+  counter-reset: setup-step;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.setup-steps li {
+  counter-increment: setup-step;
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 0.45rem;
+}
+
+.setup-steps li::before {
+  content: counter(setup-step);
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-inline-end: 0.35rem;
+  border-radius: 50%;
+  background: #ff7a1a;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.setup-images {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.setup-images img {
+  display: block;
+  width: calc(50% - 0.375rem);
+  border-radius: 8px;
+  border: 1px solid #ffc89a;
+}
+
+@media (max-width: 600px) {
+  .setup-images img {
+    width: 100%;
+  }
+}
+
 .requires-label {
   display: block;
   font-size: 0.85rem;

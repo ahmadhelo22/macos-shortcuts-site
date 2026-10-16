@@ -15,7 +15,19 @@ const STRINGS = {
     requiresLabel: 'الأدوات المطلوبة',
     backLink: '→ الرجوع لكل الشورت كاتس',
     footer: 'جميع الحقوق محفوظة لدى Ahmad Alhelo',
-    toggleLabel: 'English'
+    toggleLabel: 'English',
+    setupTitle: 'قبل ما تبلش: فعّل',
+    setupIntro: 'الشورت كات بتشتغل بخطوة Run Shell Script، وتطبيق Shortcuts بيمنع السكريبتات افتراضياً. بدون هالخيار ما رح تشتغل أبداً. بتعملها مرة وحدة بس.',
+    setupSteps: [
+      'افتح تطبيق Shortcuts واضغط على قائمة Shortcuts فوق على الشمال.',
+      'اختار Settings… (أو اضغط ⌘,).',
+      'روح على تبويب Advanced.',
+      'علّم صح على'
+    ],
+    setupImageAlt: [
+      'قائمة Shortcuts وفيها خيار Settings',
+      'تبويب Advanced وفيه خيار Allow Running Scripts'
+    ]
   },
   en: {
     dir: 'ltr',
@@ -31,7 +43,19 @@ const STRINGS = {
     requiresLabel: 'Requires',
     backLink: '← Back to all shortcuts',
     footer: 'All rights reserved to Ahmad Alhelo',
-    toggleLabel: 'العربية'
+    toggleLabel: 'العربية',
+    setupTitle: 'Before you start: turn on',
+    setupIntro: 'These shortcuts use a Run Shell Script step, and the Shortcuts app blocks scripts by default. Without this setting they won’t run at all. You only need to do it once.',
+    setupSteps: [
+      'Open the Shortcuts app and click the Shortcuts menu at the top left.',
+      'Choose Settings… (or press ⌘,).',
+      'Go to the Advanced tab.',
+      'Tick'
+    ],
+    setupImageAlt: [
+      'The Shortcuts menu with the Settings item',
+      'The Advanced tab with the Allow Running Scripts option'
+    ]
   }
 };
 
