@@ -433,6 +433,124 @@ body::after {
   margin-bottom: 1.5rem;
 }
 
+/* Keyboard shortcut box with keycaps and a step-by-step example */
+.hotkey-box {
+  margin-bottom: 1.5rem;
+  padding: 1.1rem 1.25rem;
+  background: #eef3fb;
+  border: 1px solid #c4d4ec;
+  border-inline-start: 5px solid var(--tag-text);
+  border-radius: 10px;
+}
+
+.hotkey-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+  color: var(--tag-text);
+}
+
+.detail-card .hotkey-box p {
+  margin: 0 0 0.6rem;
+  color: var(--text);
+}
+
+.detail-card .hotkey-box .hotkey-note {
+  font-weight: 600;
+  color: #c2510a;
+}
+
+.hotkey-keys {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 0.9rem;
+}
+
+/* the keys row is always left-to-right; in Arabic pages pin it to the right */
+[dir="rtl"] .hotkey-keys {
+  justify-content: flex-end;
+}
+
+.hotkey-key {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 3.4rem;
+  padding: 0.35rem 0.55rem 0.3rem;
+  background: #fff;
+  border: 1px solid #c4d4ec;
+  border-bottom-width: 4px;
+  border-radius: 8px;
+  font-family: inherit;
+  color: var(--tag-text);
+}
+
+.hotkey-sym {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.hotkey-name {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.hotkey-plus {
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.hotkey-panel {
+  display: block;
+  width: min(100%, 17rem);
+  border-radius: 8px;
+  border: 1px solid #c4d4ec;
+}
+
+.example-title {
+  margin-top: 1.4rem;
+}
+
+.example-steps {
+  list-style: none;
+  counter-reset: example-step;
+  margin: 0;
+  padding: 0;
+}
+
+.example-steps li {
+  counter-increment: example-step;
+  position: relative;
+  padding-inline-start: 2.2rem;
+  margin-bottom: 1.1rem;
+}
+
+.example-steps li::before {
+  content: counter(example-step);
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.05rem;
+  display: grid;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--tag-text);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.example-steps img {
+  display: block;
+  width: min(100%, 30rem);
+  border-radius: 8px;
+  border: 1px solid #c4d4ec;
+}
+
 /* "Allow Running Scripts" setup notice above the download button */
 .setup-notice {
   margin-bottom: 1.5rem;

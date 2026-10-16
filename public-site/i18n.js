@@ -27,7 +27,14 @@ const STRINGS = {
     setupImageAlt: [
       'قائمة Shortcuts وفيها خيار Settings',
       'تبويب Advanced وفيه خيار Allow Running Scripts'
-    ]
+    ],
+    hotkeyTitle: 'اختصار الكيبورد',
+    hotkeyAuto: 'ما في شي لازم تعمله: أول مرة بتشغّل فيها الشورت كات (من زر المشاركة أو من تطبيق Shortcuts) بيتسجّل الاختصار لحاله، وبيوصلك إشعار فيه.',
+    hotkeyCheck: 'للتأكد منه أو لتغييره: افتح الشورت كات بتطبيق Shortcuts واضغط زر ⓘ فوق، وبتلاقيه بسطر Run with. إذا السطر مش موجود، اضغط Add Keyboard Shortcut واكبس المفاتيح.',
+    hotkeyName: 'مهم: خلّي اسم الشورت كات متل ما هو لحد ما تشغّلها أول مرة، لأنو التسجيل التلقائي بيدوّر عليها بالاسم.',
+    hotkeyImageAlt: 'لوحة Details بتطبيق Shortcuts وفيها سطر Run with',
+    exampleTitle: 'مثال عملي',
+    keyNames: { '⌃': 'Control', '⌥': 'Option', '⌘': 'Command', '⇧': 'Shift' }
   },
   en: {
     dir: 'ltr',
@@ -55,7 +62,14 @@ const STRINGS = {
     setupImageAlt: [
       'The Shortcuts menu with the Settings item',
       'The Advanced tab with the Allow Running Scripts option'
-    ]
+    ],
+    hotkeyTitle: 'Keyboard shortcut',
+    hotkeyAuto: 'Nothing to set up: the first time you run the shortcut (from the Share button or the Shortcuts app) the keyboard shortcut is assigned automatically, and a notification tells you.',
+    hotkeyCheck: 'To check or change it: open the shortcut in the Shortcuts app and click the ⓘ button at the top; it’s on the Run with line. If that line isn’t there, click Add Keyboard Shortcut and press the keys.',
+    hotkeyName: 'Important: keep the shortcut’s name as it is until its first run, because the automatic setup looks it up by name.',
+    hotkeyImageAlt: 'The Details panel in the Shortcuts app with the Run with line',
+    exampleTitle: 'Example',
+    keyNames: { '⌃': 'Control', '⌥': 'Option', '⌘': 'Command', '⇧': 'Shift' }
   }
 };
 

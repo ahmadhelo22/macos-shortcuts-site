@@ -79,6 +79,8 @@ function render() {
     imagesWrap.hidden = true;
   }
 
+  renderHotkey(t, currentLang);
+
   const details = currentLang === 'ar' ? shortcutItem.details_ar : shortcutItem.details_en;
   const detailsWrap = document.getElementById('shortcut-details');
   detailsWrap.innerHTML = '';
@@ -111,6 +113,104 @@ function render() {
   const downloadBtn = document.getElementById('shortcut-download');
   downloadBtn.href = `../${shortcutItem.file}`;
   downloadBtn.innerHTML = `<span class="arrow">&#8595;</span> ${t.download}`;
+}
+
+// "⌃⌥⌘V" → keycaps, each with the key's name underneath.
+function renderKeys(hotkey, t) {
+  const wrap = document.createElement('div');
+  wrap.className = 'hotkey-keys';
+  wrap.dir = 'ltr';
+  [...hotkey].forEach((ch, i) => {
+    if (i > 0) {
+      const plus = document.createElement('span');
+      plus.className = 'hotkey-plus';
+      plus.textContent = '+';
+      wrap.appendChild(plus);
+    }
+    const key = document.createElement('kbd');
+    key.className = 'hotkey-key';
+    const sym = document.createElement('span');
+    sym.className = 'hotkey-sym';
+    sym.textContent = ch;
+    key.appendChild(sym);
+    const name = t.keyNames[ch];
+    if (name) {
+      const label = document.createElement('span');
+      label.className = 'hotkey-name';
+      label.textContent = name;
+      key.appendChild(label);
+    }
+    wrap.appendChild(key);
+  });
+  return wrap;
+}
+
+// Keyboard shortcut box plus a step-by-step example, for shortcuts that
+// assign themselves a hotkey (the `hotkey` and `example` fields).
+function renderHotkey(t, lang) {
+  let box = document.getElementById('hotkey-box');
+  if (!shortcutItem.hotkey) {
+    if (box) box.remove();
+    return;
+  }
+  if (!box) {
+    box = document.createElement('section');
+    box.id = 'hotkey-box';
+    box.className = 'hotkey-box';
+    const details = document.getElementById('shortcut-details');
+    details.parentNode.insertBefore(box, details);
+  }
+  box.innerHTML = '';
+
+  const title = document.createElement('h3');
+  title.className = 'hotkey-title';
+  title.textContent = `⌨️ ${t.hotkeyTitle}`;
+  box.appendChild(title);
+  box.appendChild(renderKeys(shortcutItem.hotkey, t));
+
+  [t.hotkeyAuto, t.hotkeyCheck].forEach((text) => {
+    const p = document.createElement('p');
+    p.textContent = text;
+    box.appendChild(p);
+  });
+  const note = document.createElement('p');
+  note.className = 'hotkey-note';
+  note.textContent = t.hotkeyName;
+  box.appendChild(note);
+
+  const panel = document.createElement('img');
+  panel.className = 'hotkey-panel';
+  panel.src = `images/${shortcutItem.slug}/hotkey.jpg`;
+  panel.alt = t.hotkeyImageAlt;
+  panel.loading = 'lazy';
+  box.appendChild(panel);
+
+  const example = Array.isArray(shortcutItem.example) ? shortcutItem.example : [];
+  if (example.length === 0) return;
+
+  const exTitle = document.createElement('h3');
+  exTitle.className = 'hotkey-title example-title';
+  exTitle.textContent = `▶️ ${t.exampleTitle}`;
+  box.appendChild(exTitle);
+
+  const steps = document.createElement('ol');
+  steps.className = 'example-steps';
+  example.forEach((step) => {
+    const li = document.createElement('li');
+    const text = document.createElement('p');
+    text.textContent = lang === 'ar' ? step.ar : step.en;
+    li.appendChild(text);
+    if (step.keys) li.appendChild(renderKeys(shortcutItem.hotkey, t));
+    if (step.image) {
+      const img = document.createElement('img');
+      img.src = step.image;
+      img.alt = text.textContent;
+      img.loading = 'lazy';
+      li.appendChild(img);
+    }
+    steps.appendChild(li);
+  });
+  box.appendChild(steps);
 }
 
 // Every shortcut on the site runs a shell script, which the Shortcuts app
